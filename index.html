@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizz buzz</title>
+    
+</head>
+<body>
+    <h3>Enter a number and the program will output fizz buzz up to your entered number. (Number has to be greater than 0 and not negative)</h3>
+    <input id="enterednumber" type="number" placeholder="Enter a number"/>
+    <button id="calculatebutton">Show Fizz Buzz</button>
+    <p id="output"></p>
+
+    <script>
+ 
+        //When the button is pressed, check if the user entered a value and then call a function that calculates the fizz buzz
+        const button = document.getElementById("calculatebutton");
+        button.onclick = fizzBuzz;
+
+        //Function that calculates fizz buzz should loop to all values
+        //starting from 1 up to the nuber entered. 
+        //if the number is divisible by both 3 and 5, then output "Fizz Buzz"
+        //if the number is divisible by 3 only, then output "Fizz"
+        //if the number is divisible by 5 only, then output "Buzz"
+        //else output the current number in the loop
+        function fizzBuzz(){
+
+        //Store the value entered in the input box in an integer value
+        const number = parseInt(document.getElementById("enterednumber").value);
+ 
+        //Store the paragraph tag for output in a variable
+        let output = document.getElementById("output");
+ 
+         let calculatingOutput = "";
+ 
+         for(let i = 1; i <= number; i++){
+ 
+             if(i % 3 === 0 && i % 5 === 0){
+                 calculatingOutput += "Fizz Buzz" + "\n";
+             }
+             else if(i % 3 === 0){
+                 calculatingOutput += "Fizz" + "\n";
+             }
+             else if(i % 5 === 0){
+                 calculatingOutput += "Buzz" + "\n";
+             }
+             else{
+                 calculatingOutput += i.toString() + "\n";
+             }
+         }
+ 
+         //output the calculated values
+         output.innerText = calculatingOutput;
+            
+        }
+ 
+     </script>
+    
+</body>
+</html>
